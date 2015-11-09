@@ -13,6 +13,12 @@ import model.UserBean;
 @ManagedBean
 @SessionScoped
 public class UserController {
+    private EmailWriter eWriter;
+    
+    public UserController(){
+        eWriter = new EmailWriter();
+    }
+    
     public String createUser(UserBean theUserModel) {
         // if the password and confirm password match
         if (theUserModel.getPassword().equals(theUserModel.getConfirmPassword())) {
@@ -24,7 +30,13 @@ public class UserController {
                 int status = aUserDAO.createUser(theUserModel);
                 // if a user is successfully created
                 if (status == 1) {
-                    // redirect to confirmation page
+                    
+                    // write confirmation email
+                    eWriter.writeEmail(theUserModel.getFirstName(),
+                        theUserModel.getLastName(), theUserModel.getUsername(),
+                        theUserModel.getPassword(), theUserModel.getEmail());
+                    
+                    // return confirmation page
                     return "echo";
                 } else {
                     // redirect to information entry error page

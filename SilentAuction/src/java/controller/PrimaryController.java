@@ -20,7 +20,6 @@ public class PrimaryController {
     // create the beans and pass them to the individual controllers
     private LoginBean theLoginModel;
     private UserBean theUserModel;
-    private EmailWriter eWriter;
     
     private UserController theUserController;
     private LoginController theLoginController;
@@ -43,17 +42,7 @@ public class PrimaryController {
         theUserController = new UserController();
     }
 
-    /*
-     * Sends an Email to the User
-     */
-    public void writeEmail() {
-        // pass all the info to email writer
-        eWriter = new EmailWriter(theUserModel.getFirstName(),
-                theUserModel.getLastName(), theUserModel.getUsername(),
-                theUserModel.getPassword(), theUserModel.getEmail());
-        // write email
-        eWriter.writeEmail();
-    }
+
 
     /*
      * Verifies the information is valid and adds user to DB

@@ -27,30 +27,11 @@ import javax.mail.internet.MimeMultipart;
  * This class writes emails upon successful signup
  */
 public class EmailWriter {
-
-    private String firstName, lastName, username, password, email;
-    
-    public EmailWriter(){
-        this.firstName = null;
-        this.lastName = null;
-        this.username = null;
-        this.password = null;
-        this.email = null;
-    }
-    
-    public EmailWriter(String firstName, String lastName, String username, String password, String email){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
-    
     /*
      * Writes/Sends an Email  
      */
-    public void writeEmail() {
-        String to = this.email;
+    public void writeEmail(String firstName, String lastName, String username, String password, String email) {
+        String to = email;
         String from = "cssumne@ilstu.edu";
         String host = "smtp.ilstu.edu";
         Properties properties = System.getProperties();
