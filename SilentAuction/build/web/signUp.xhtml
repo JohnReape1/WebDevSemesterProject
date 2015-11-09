@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Sign Up</title>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <h:outputLabel value ="First Name: "/>
+            <h:inputText id="firstNameInput" required="true" value = "#{primaryController.theUserModel.firstName}">   
+                <f:validateLength minimum="2" maximum="25"/>
+            </h:inputText>
+            <br /><br />
+            <h:outputLabel value ="Last Name: "/>
+            <h:inputText id="lastNameInput" required="true" value = "#{primaryController.theUserModel.lastName}">
+                <f:validateLength minimum="2" maximum="25"/>
+            </h:inputText>
+            <br /><br />
+            <h:outputLabel value ="User ID: "/>
+            <h:inputText id="userIDInput" required="true" value = "#{primaryController.theUserModel.username}"/>
+            <br /><br />
+            <h:outputLabel value ="Password: "/>
+            <h:inputSecret id="passwordInput" required="true" value = "#{primaryController.theUserModel.password}"/>
+            <br /><br/>
+            <h:outputLabel value ="Confirm Password: "/>
+            <h:inputSecret id="confirmInput" required="true" value = "#{primaryController.theUserModel.confirmPassword}"/>
+            <br /><br/>
+            <h:outputLabel value ="Email: "/>
+            <h:inputText id="emailInput" required="true" value = "#{primaryController.theUserModel.email}"/>
+            <br /><br />
+            <h:outputLabel value ="Security Question: "/>
+            <h:inputText id="secQuestInput" required="true" value = "#{primaryController.theUserModel.question}"/>
+            <br /><br />
+            <h:outputLabel value ="Security Answer: "/>
+            <h:inputText id="secAnswerInput" required="true" value = "#{primaryController.theUserModel.answer}"/>
+            <br /><br />
+            <h:commandButton id="submitUser" value = "Submit" action="#{primaryController.createUser()}" />
+        </h:form>
+    </h:body>
+</html>
