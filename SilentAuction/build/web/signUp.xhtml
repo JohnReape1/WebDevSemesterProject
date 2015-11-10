@@ -21,7 +21,7 @@ and open the template in the editor.
             <br /><br />
             <h:outputLabel value ="Last Name: "/>
             <h:inputText id="lastNameInput" required="true" value = "#{primaryController.theUserModel.lastName}">
-                <f:validateLength minimum="2" maximum="25"/>
+            <f:validateLength minimum="2" maximum="25"/>
             </h:inputText>
             <br /><br />
             <h:outputLabel value ="User ID: "/>
@@ -35,6 +35,27 @@ and open the template in the editor.
             <br /><br/>
             <h:outputLabel value ="Email: "/>
             <h:inputText id="emailInput" required="true" value = "#{primaryController.theUserModel.email}"/>
+            <br /><br />
+            <h:outputLabel value ="Street: "/>
+            <h:inputText id="streetInput" required="true" value = "#{primaryController.theUserModel.street}"/>
+            <br /><br />
+            <h:outputLabel value ="City: "/>
+            <h:inputText id="cityInput" required="true" value = "#{primaryController.theUserModel.city}"/>
+            <br /><br />
+            <h:outputLabel value ="State: "/>
+            <h:inputText id="stateInput" required="true" value = "#{primaryController.theUserModel.state}"/>
+            <br /><br />
+            <h:outputLabel value ="ZIP "/>
+            <h:inputText id="zipInput" required="true" value = "#{primaryController.theUserModel.zip}"/>
+            <br /><br />
+            <h:outputLabel value ="Home Phone: "/>
+            <h:inputText id="hPhoneInput" required="true" value = "#{primaryController.theUserModel.homePhone}"/>
+            <br /><br />
+            <h:outputLabel value ="Cell Phone: "/>
+            <h:inputText id="cPhoneInput" required="true" value = "#{primaryController.theUserModel.cellPhone}"/>
+            <br /><br /> 
+            <h:outputLabel value ="Permission: "/>
+            <h:inputText id="permissionInput" required="true" value = "#{primaryController.theUserModel.permissionLevel}"/>
             <br /><br />
             <h:outputLabel value ="Security Question: "/>
             <h:inputText id="secQuestInput" required="true" value = "#{primaryController.theUserModel.question}"/>

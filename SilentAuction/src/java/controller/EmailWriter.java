@@ -30,7 +30,7 @@ public class EmailWriter {
     /*
      * Writes/Sends an Email  
      */
-    public void writeEmail(String firstName, String lastName, String username, String password, String email) {
+    public void writeConfirmationEmail(String firstName, String lastName, String username, String password, String email) {
         String to = email;
         String from = "cssumne@ilstu.edu";
         String host = "smtp.ilstu.edu";
@@ -71,5 +71,13 @@ public class EmailWriter {
         } catch (MessagingException mex) {
             mex.printStackTrace();
         }
+    }
+    
+    public void writeReceipt(){
+        
+    }
+    
+    public void writeInvoice(){
+        
     }
 }

@@ -5,36 +5,43 @@ package model;
  */
 public class ItemBean {
     private String  itemName, // item's name 
-                    itemIDNumber, // item's identifying number
+                    idNumber, // item's identifying number
                     listPrice, // item's list price
                     highestBid, // the highest bid
                     userName, // highest bidder's username
                     donor, // designer or person who donated
                     approxValue, // value of item
                     minBid, // minimum acceptable bid
-                    angelPrice; // "angel" price
+                    angelPrice, // "angel" price
+                    paymentStatus, // whether it is paid for or not
+                    soldStatus; // whether it is sold or not
     
     public ItemBean(){
         this.itemName = null;
-        this.itemIDNumber = null;
+        this.idNumber = null;
         this.listPrice = null;
         this.highestBid = null;
         this.donor = null;
         this.approxValue = null;
         this.minBid = null;
         this.angelPrice = null;
+        this.paymentStatus = null;
+        this.soldStatus = null;
     }
     
     public ItemBean(String itemName, String itemIDNumber, String listPrice, 
-        String highestBid, String donor, String approxValue, String minBid, String angelPrice){
+        String highestBid, String donor, String approxValue, String minBid, String angelPrice, 
+        String paymentStatus, String soldStatus){
         this.itemName = itemName;
-        this.itemIDNumber = itemIDNumber;
+        this.idNumber = itemIDNumber;
         this.listPrice = listPrice;
         this.highestBid = highestBid;
         this.donor = donor;
         this.approxValue = approxValue;
         this.minBid = minBid;
         this.angelPrice = angelPrice;  
+        this.paymentStatus = null;
+        this.soldStatus = null;
     }
     
     public String getItemName() {
@@ -46,11 +53,11 @@ public class ItemBean {
     }
 
     public String getItemIDNumber() {
-        return itemIDNumber;
+        return idNumber;
     }
 
     public void setItemIDNumber(String itemNumber) {
-        this.itemIDNumber = itemNumber;
+        this.idNumber = itemNumber;
     }
 
     public String getListPrice() {
@@ -107,5 +114,21 @@ public class ItemBean {
 
     public void setAngelPrice(String angelPrice) {
         this.angelPrice = angelPrice;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public String getSoldStatus() {
+        return soldStatus;
+    }
+
+    public void setSoldStatus(String soldStatus) {
+        this.soldStatus = soldStatus;
     }
 }

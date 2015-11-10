@@ -42,8 +42,6 @@ public class PrimaryController {
         theUserController = new UserController();
     }
 
-
-
     /*
      * Verifies the information is valid and adds user to DB
      */

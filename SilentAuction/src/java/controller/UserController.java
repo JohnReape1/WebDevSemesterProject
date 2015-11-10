@@ -32,7 +32,7 @@ public class UserController {
                 if (status == 1) {
                     
                     // write confirmation email
-                    eWriter.writeEmail(theUserModel.getFirstName(),
+                    eWriter.writeConfirmationEmail(theUserModel.getFirstName(),
                         theUserModel.getLastName(), theUserModel.getUsername(),
                         theUserModel.getPassword(), theUserModel.getEmail());
                     

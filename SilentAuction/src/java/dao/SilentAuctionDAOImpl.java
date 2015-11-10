@@ -117,7 +117,7 @@ public class SilentAuctionDAOImpl implements SilentAuctionDAO{
                     password, email, question, answer,
                     street, city, state, zip, 
                     homePhone, cellPhone , permission;
-            UserBean aWebAppBean;
+            UserBean silentAuctionBean;
             while (rs.next()) {
                 first_name = rs.getString("First_Name");
                 last_name = rs.getString("Last_Name");
@@ -134,10 +134,10 @@ public class SilentAuctionDAOImpl implements SilentAuctionDAO{
                 answer = rs.getString("Answer");
                 permission = rs.getString("Permission_Level");
 
-                aWebAppBean = new UserBean(first_name, last_name, username, street, city, state, zip,
+                silentAuctionBean = new UserBean(first_name, last_name, username, street, city, state, zip,
                                             homePhone, cellPhone, email, password, question, answer, permission);
                 // add the newly created object to the collection
-                aWebAppBeanCollection.add(aWebAppBean);
+                aWebAppBeanCollection.add(silentAuctionBean);
             }
             rs.close();
             stmt.close();
