@@ -43,7 +43,9 @@ and open the template in the editor.
             <h:inputText id="cityInput" required="true" value = "#{primaryController.theUserModel.city}"/>
             <br /><br />
             <h:outputLabel value ="State: "/>
-            <h:inputText id="stateInput" required="true" value = "#{primaryController.theUserModel.state}"/>
+            <h:selectOneMenu value="#{primaryController.theUserModel.state}" >
+                <f:selectItems value="#{primaryController.stateList}" />
+            </h:selectOneMenu>       
             <br /><br />
             <h:outputLabel value ="ZIP "/>
             <h:inputText id="zipInput" required="true" value = "#{primaryController.theUserModel.zip}"/>
@@ -55,7 +57,9 @@ and open the template in the editor.
             <h:inputText id="cPhoneInput" required="true" value = "#{primaryController.theUserModel.cellPhone}"/>
             <br /><br /> 
             <h:outputLabel value ="Permission: "/>
-            <h:inputText id="permissionInput" required="true" value = "#{primaryController.theUserModel.permissionLevel}"/>
+            <h:selectOneMenu value="#{primaryController.theUserModel.permissionLevel}" >
+                <f:selectItems value="#{primaryController.permissionList}" />
+            </h:selectOneMenu>       
             <br /><br />
             <h:outputLabel value ="Security Question: "/>
             <h:inputText id="secQuestInput" required="true" value = "#{primaryController.theUserModel.question}"/>

@@ -14,8 +14,8 @@ public class UserBean {
                     street, // user's street
                     homePhone, // user's home phone
                     cellPhone, // user's cell phone
-                    permissionLevel,// user's permission level
-                    email,// user's email address
+                    permissionLevel, // user's permission level
+                    email, // user's email address
                     password, // user's password
                     confirmPassword, // confirm password
                     question, // security question
@@ -42,7 +42,6 @@ public class UserBean {
         this.question = question;
         this.answer = answer;
         this.permissionLevel = permissionLevel; 
-        
     }
     
     

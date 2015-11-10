@@ -13,6 +13,7 @@ public class ItemBean {
                     approxValue, // value of item
                     minBid, // minimum acceptable bid
                     angelPrice, // "angel" price
+                    category,
                     paymentStatus, // whether it is paid for or not
                     soldStatus; // whether it is sold or not
     
@@ -130,5 +131,21 @@ public class ItemBean {
 
     public void setSoldStatus(String soldStatus) {
         this.soldStatus = soldStatus;
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
