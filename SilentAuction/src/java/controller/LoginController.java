@@ -26,10 +26,7 @@ public class LoginController {
         return attempts;
     }
     
-    public String validateLogin(LoginBean theLoginModel) {
-        System.out.println("Login Controller: " + theLoginModel.getUsername());
-        System.out.println("Login Controller: " + theLoginModel.getPassword());
-        
+    public String validateLogin(LoginBean theLoginModel) {        
         // ensures the number of login attempts are less than 3
         if (attempts < 3) {
             // creates DAO for DB operations

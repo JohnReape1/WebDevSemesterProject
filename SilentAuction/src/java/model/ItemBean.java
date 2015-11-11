@@ -8,7 +8,7 @@ public class ItemBean {
                     idNumber, // item's identifying number
                     listPrice, // item's list price
                     highestBid, // the highest bid
-                    userName, // highest bidder's username
+                    highestBidder, // highest bidder's username
                     donor, // designer or person who donated
                     approxValue, // value of item
                     minBid, // minimum acceptable bid
@@ -41,8 +41,8 @@ public class ItemBean {
         this.approxValue = approxValue;
         this.minBid = minBid;
         this.angelPrice = angelPrice;  
-        this.paymentStatus = null;
-        this.soldStatus = null;
+        this.paymentStatus = "Unpaid";
+        this.soldStatus = "Unsold";
     }
     
     public String getItemName() {
@@ -51,14 +51,6 @@ public class ItemBean {
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
-    }
-
-    public String getItemIDNumber() {
-        return idNumber;
-    }
-
-    public void setItemIDNumber(String itemNumber) {
-        this.idNumber = itemNumber;
     }
 
     public String getListPrice() {
@@ -77,14 +69,14 @@ public class ItemBean {
         this.highestBid = highestBid;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getHighestBidder() {
+        return highestBidder;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setHighestBidder(String highestBidder) {
+        this.highestBidder = highestBidder;
     }
-
+    
     public String getDonor() {
         return donor;
     }

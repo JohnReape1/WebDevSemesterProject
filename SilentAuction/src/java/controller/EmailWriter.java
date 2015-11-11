@@ -59,7 +59,7 @@ public class EmailWriter {
             multipart.addBodyPart(messageBodyPart);
             messageBodyPart = new MimeBodyPart();
             DataSource fds;
-            fds = new FileDataSource("H:/NetBeansApps/SilentAuction/web/resources/bf_logo.png");
+            fds = new FileDataSource("C:\\Users\\Corbin\\Desktop\\Github\\WebDevSemesterProject\\SilentAuction\\web\\resources\\bf_logo.png");
             messageBodyPart.setDataHandler(new DataHandler(fds));
             messageBodyPart.setHeader("Content-ID", "<image>");
             multipart.addBodyPart(messageBodyPart);

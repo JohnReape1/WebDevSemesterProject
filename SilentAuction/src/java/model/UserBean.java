@@ -41,7 +41,7 @@ public class UserBean {
         this.password = password;
         this.question = question;
         this.answer = answer;
-        this.permissionLevel = permissionLevel; 
+        this.permissionLevel = permissionLevel;
     }
     
     
