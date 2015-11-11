@@ -26,13 +26,12 @@ public class PrimaryController {
     
     private UserController theUserController;
     private LoginController theLoginController;
-    //private ItemsController theItemController // for future implementation
+    private ItemController theItemController; // for future implementation
     private ArrayList<UserBean> users;
     
     private ArrayList<String> categoryList;
     private ArrayList<String> permissionList;
     private ArrayList<String> stateList;
-    
     
     /*
      *  Primary Controller manages the other controllers that operate on the 
@@ -46,12 +45,15 @@ public class PrimaryController {
         //System.out.println("Controller Created"); //for debug
         theLoginModel = new LoginBean();
         theUserModel = new UserBean();
+        theItemModel = new ItemBean();
         theLoginController = new LoginController();
         theUserController = new UserController();
+        theItemController = new ItemController();
         
         categoryList = new ArrayList<String>();
         permissionList = new ArrayList<String>();
         stateList = new ArrayList<String>();
+        
         /* setting up prepopulated lists */
         String [] states = {"AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA",
                             "HI","ID","IL","IN","IA","KS","KY","LA","ME","MD",
@@ -68,7 +70,6 @@ public class PrimaryController {
         String [] permissions = {"Public", "Designer/Donor", 
                                  "Steering Committee", "Admin"};
         Collections.addAll(permissionList, permissions);
-        
     }
 
     /*
@@ -76,20 +77,23 @@ public class PrimaryController {
      */
     public String createUser() {
         //user controller determines the redirect
-        //return theUserController.createUser(theUserModel);
         String redirect = theUserController.createUser(theUserModel);
-        //System.out.println("Go To: " + redirect);
         return redirect;
     }
 
+    public String createItem(){
+        System.out.println("Primary");
+        String redirect = theItemController.createItem(theItemModel);
+        System.out.println("XBF" + redirect);
+        /* going to need various redirects */
+        return redirect;
+    }
     /*
      * Verifies if it is a valid login by making sure user exists in Login DB
      */
-    public String validateLogin() {        
-        //System.out.println("Primary: " + theLoginModel.getUsername());
-        //System.out.println("Primary: " + theLoginModel.getPassword());
+    public String validateLogin() {   
+        //logs user in and redirects as necessary
         String redirect = theLoginController.validateLogin(theLoginModel); 
-        //System.out.println("Go To: " + redirect);
         return redirect;
     }
     
@@ -106,17 +110,9 @@ public class PrimaryController {
     public LoginBean getTheLoginModel() {
         return theLoginModel;
     }
-
-    public void setTheLoginModel(LoginBean theLoginModel) {
-        this.theLoginModel = theLoginModel;
-    }
     
     public UserBean getTheUserModel() {
         return theUserModel;
-    }
-    
-    public void setTheUserModel(UserBean theUserModel) {
-        this.theUserModel = theUserModel;
     }
 
     public ItemBean getTheItemModel() {
@@ -131,30 +127,7 @@ public class PrimaryController {
         return permissionList;
     }
 
-    public UserController getTheUserController() {
-        return theUserController;
-    }
-
-    public void setTheUserController(UserController theUserController) {
-        this.theUserController = theUserController;
-    }
-
-    public LoginController getTheLoginController() {
-        return theLoginController;
-    }
-
-    public void setTheLoginController(LoginController theLoginController) {
-        this.theLoginController = theLoginController;
-    }
-
     public ArrayList<String> getStateList() {
         return stateList;
     }
-
-    public void setStateList(ArrayList<String> stateList) {
-        this.stateList = stateList;
-    }
-    
-    
-    
 }

@@ -1,4 +1,4 @@
-CREATE TABLE Item
+CREATE TABLE Items
 (
   Item_Name     	VARCHAR(25) NOT NULL,
   ID_Number			VARCHAR(25) NOT NULL,

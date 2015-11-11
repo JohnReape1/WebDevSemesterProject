@@ -14,22 +14,23 @@ and open the template in the editor.
     <h:body>
         <h:form>
             <h:outputLabel value ="Item Name: "/>
-            <h:inputText id="itemNameInput" required="true" value = "#{primaryController.theItemModel.itemName}"/>   
+            <h:inputText id="itemNameInput" required="true" value = "#{primaryController.theItemModel.itemName}" />;
             <br /><br />
             <h:outputLabel value ="List Price: "/>
             <h:inputText id="listPriceInput" required="true" value = "#{primaryController.theItemModel.listPrice}"/>
             <br /><br />
             <h:outputLabel value ="Donor: "/>
-            <h:inputText id="userIDInput" required="true" value = "#{primaryController.theItemModel.donor}"/>
+            <h:inputText id="donor" required="true" value = "#{primaryController.theItemModel.donor}"/>
             <br /><br />
             <h:outputLabel value ="Approximate Value: "/>
-            <h:inputSecret id="passwordInput" required="true" value = "#{primaryController.theItemModel.approxValue}"/>
+            <h:inputText id="approxValue" required="true" value = "#{primaryController.theItemModel.approxValue}"/>
             <br /><br/>
             <h:outputLabel value ="Category: "/>
             <h:selectOneMenu value="#{primaryController.theItemModel.category}" >
                 <f:selectItems value="#{primaryController.categoryList}" />
             </h:selectOneMenu>  
             <br /><br />
+            <h:commandButton id="submitItem" value = "Submit" action="#{primaryController.createItem()}" />
         </h:form>
     </h:body>
 </html>
