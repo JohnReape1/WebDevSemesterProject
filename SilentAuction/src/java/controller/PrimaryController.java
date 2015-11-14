@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import model.ItemBean;
 import model.LoginBean;
+import model.SearchBean;
 import model.UserBean;
 
 /**
@@ -23,15 +24,17 @@ public class PrimaryController {
     private LoginBean theLoginModel;
     private UserBean theUserModel;
     private ItemBean theItemModel;
+    private SearchBean theSearchModel;
     
     private UserController theUserController;
     private LoginController theLoginController;
     private ItemController theItemController; // for future implementation
-    private ArrayList<UserBean> users;
     
+    private ArrayList<UserBean> users;
     private ArrayList<String> categoryList;
     private ArrayList<String> permissionList;
     private ArrayList<String> stateList;
+    private ArrayList<ItemBean> itemList;
     
     /*
      *  Primary Controller manages the other controllers that operate on the 
@@ -46,6 +49,8 @@ public class PrimaryController {
         theLoginModel = new LoginBean();
         theUserModel = new UserBean();
         theItemModel = new ItemBean();
+        theSearchModel = new SearchBean();
+        
         theLoginController = new LoginController();
         theUserController = new UserController();
         theItemController = new ItemController();
@@ -78,11 +83,19 @@ public class PrimaryController {
     public String createUser() {
         //user controller determines the redirect
         String redirect = theUserController.createUser(theUserModel);
+        theLoginModel.setLoggedIn(true);
+        theLoginModel.setPassword(theUserModel.getPassword());
+        theLoginModel.setUsername(theUserModel.getUsername());
+        theLoginModel.setQuestion(theUserModel.getQuestion());
+        theLoginModel.setAnswer(theUserModel.getAnswer());
         return redirect;
     }
 
     public String createItem(){
         System.out.println("Primary");
+        theItemModel.setAuthor(theLoginModel.getUsername());
+        theItemModel.setMinBid(theItemModel.determineMinbid(theItemModel));
+        theItemModel.setAngelPrice(theItemModel.determineAngelPrice(theItemModel));
         String redirect = theItemController.createItem(theItemModel);
         System.out.println("XBF" + redirect);
         /* going to need various redirects */
@@ -102,6 +115,12 @@ public class PrimaryController {
         this.users = aUser.findByUsername(theLoginModel.getUsername());
         return users;
     }
+    public ArrayList<ItemBean> searchItems()
+    {
+        SilentAuctionDAO aItem = new SilentAuctionDAOImpl();
+        this.itemList=aItem.searchAll(theSearchModel.getKeyword());
+        return itemList;
+    }
 
     public void setUsers(ArrayList<UserBean> users) {
         this.users = users;
@@ -118,6 +137,9 @@ public class PrimaryController {
     public ItemBean getTheItemModel() {
         return theItemModel;
     }
+    public SearchBean getTheSeacrhModel(){
+        return theSearchModel;
+    }
 
     public ArrayList<String> getCategoryList() {
         return categoryList;
@@ -129,5 +151,15 @@ public class PrimaryController {
 
     public ArrayList<String> getStateList() {
         return stateList;
+    }
+    public ArrayList<ItemBean> getItemList(){
+        return itemList;
+    }
+    public void serItemList(ArrayList<ItemBean> itemList){
+        this.itemList=itemList;
+    }
+    public void setTheSearchModel(SearchBean model)
+    {
+        this.theSearchModel=model;
     }
 }

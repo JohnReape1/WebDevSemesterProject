@@ -16,4 +16,6 @@ public interface SilentAuctionDAO {
     public ArrayList findByUsername(String username);  
     public ArrayList authorizeUser(String username, String password);
     public ArrayList getQandA(String username, String password);
+    public ArrayList<ItemBean> searchAll(String keyword);
+    
 }

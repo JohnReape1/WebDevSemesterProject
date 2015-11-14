@@ -10,10 +10,11 @@ public class ItemBean {
                     highestBid, // the highest bid
                     highestBidder, // highest bidder's username
                     donor, // designer or person who donated
+                    author,//actual poster of the item on the site
                     approxValue, // value of item
                     minBid, // minimum acceptable bid
                     angelPrice, // "angel" price
-                    category,
+                    category,//category of the item
                     paymentStatus, // whether it is paid for or not
                     soldStatus; // whether it is sold or not
     
@@ -28,21 +29,23 @@ public class ItemBean {
         this.angelPrice = null;
         this.paymentStatus = null;
         this.soldStatus = null;
+        this.author=null;
     }
     
     public ItemBean(String itemName, String itemIDNumber, String listPrice, 
-        String highestBid, String donor, String approxValue, String minBid, String angelPrice, 
+        String highestBid, String donor, String author, String approxValue, String minBid, String angelPrice, 
         String paymentStatus, String soldStatus){
         this.itemName = itemName;
         this.idNumber = itemIDNumber;
         this.listPrice = listPrice;
         this.highestBid = highestBid;
         this.donor = donor;
+        this.author=author;
         this.approxValue = approxValue;
         this.minBid = minBid;
         this.angelPrice = angelPrice;  
-        this.paymentStatus = "Unpaid";
-        this.soldStatus = "Unsold";
+        this.paymentStatus = paymentStatus;
+        this.soldStatus = soldStatus;
     }
     
     public String getItemName() {
@@ -139,5 +142,42 @@ public class ItemBean {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+    public String getAuthor() {
+        return author;
+    }
+    public void setAuthor(String author){
+        this.author=author;
+    }
+    public String determineMinbid(ItemBean model)
+    {
+        double x;
+        if(model.getCategory().equals("Celebrity Price")||model.getCategory().equals("Opening Night"))
+        {
+            return model.getApproxValue();
+        }
+        else if(model.getCategory().equals("Jingle Bell Junction")||model.getCategory().equals("Designer Item"))
+        {
+            x=((1/3)*Integer.parseInt(model.getApproxValue()));
+            return String.valueOf(x);
+        }
+        else
+        {
+            return null;
+        }
+    }
+    public String determineAngelPrice(ItemBean model)
+    {
+        double x;
+        if(model.getCategory().equals("Designer Item"))
+        {
+            x=(0.100*Integer.parseInt(model.getApproxValue()));
+            x=x+Integer.parseInt(model.getApproxValue());
+            return String.valueOf(x);
+        }
+        else
+        {
+           
+        } return null;
     }
 }
