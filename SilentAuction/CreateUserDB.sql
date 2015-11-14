@@ -16,6 +16,6 @@ CREATE TABLE SilentAuction.Users
   Home_Phone                            VARCHAR(25) NOT NULL,
   Cell_Phone                            VARCHAR(25) NOT NULL,
   Permission_Level                      VARCHAR(25) NOT NULL,
-  Question                              VARCHAR(25) NOT NULL,
-  Answer                                VARCHAR(25) NOT NULL
+  Question                              VARCHAR(150) NOT NULL,
+  Answer                                VARCHAR(50) NOT NULL
 );

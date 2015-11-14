@@ -152,13 +152,16 @@ public class ItemBean {
     public String determineMinbid(ItemBean model)
     {
         double x;
+        double y;
         if(model.getCategory().equals("Celebrity Price")||model.getCategory().equals("Opening Night"))
         {
             return model.getApproxValue();
         }
         else if(model.getCategory().equals("Jingle Bell Junction")||model.getCategory().equals("Designer Item"))
         {
-            x=((1/3)*Integer.parseInt(model.getApproxValue()));
+            x=Double.parseDouble(model.getApproxValue());
+            y=(1.0/3.0)*x;
+            y=Math.round(y*100.0)/100.0;
             return String.valueOf(x);
         }
         else
@@ -169,10 +172,12 @@ public class ItemBean {
     public String determineAngelPrice(ItemBean model)
     {
         double x;
+        double y;
         if(model.getCategory().equals("Designer Item"))
         {
-            x=(0.100*Integer.parseInt(model.getApproxValue()));
-            x=x+Integer.parseInt(model.getApproxValue());
+            x=(0.100*Double.parseDouble(model.getApproxValue()));
+            y=x+Double.parseDouble(model.getApproxValue());
+            y=Math.round(y*100.0)/100.0;
             return String.valueOf(x);
         }
         else
