@@ -115,6 +115,10 @@ public class PrimaryController {
         this.users = aUser.findByUsername(theLoginModel.getUsername());
         return users;
     }
+    /*
+     *Searches the items did not make another controller for the search function
+     *But did make a bean to keep track of the searched for term
+    */
     public ArrayList<ItemBean> searchItems()
     {
         SilentAuctionDAO aItem = new SilentAuctionDAOImpl();

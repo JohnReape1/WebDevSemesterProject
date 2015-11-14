@@ -264,7 +264,7 @@ public class SilentAuctionDAOImpl implements SilentAuctionDAO {
             String myDB = "jdbc:derby://localhost:1527/SilentAuction";
             DBConn = DBHelper.connect2DB(myDB, "itkstu", "student");
             PreparedStatement stmt =DBConn.prepareStatement(query);
-            stmt.setString(1, keyword.substring(0, 1)+"%");
+            stmt.setString(1, "%"+keyword.substring(0, 1)+"%");
             ResultSet rs = stmt.executeQuery();
             ItemBean temp;
             String itemNum,name,donor,highestBid,highestBidder,listPrice,approx_value,
@@ -312,7 +312,7 @@ public class SilentAuctionDAOImpl implements SilentAuctionDAO {
             ResultSet rs = stmt.executeQuery();
             ItemBean temp;
             int itemNum1;
-            String itemNum,name,donor,highestBid,highestBidder,listPrice,approx_value,
+            String name,donor,highestBid,highestBidder,listPrice,approx_value,
                     minBid,payment_status,sold_status,angelPrice,author;
             
             while (rs.next()) {
@@ -354,10 +354,13 @@ public class SilentAuctionDAOImpl implements SilentAuctionDAO {
     public ArrayList<ItemBean> searchAll(String keyword)
     {
         
-    
+        //Seacrh by item number Query
         String query= "SELECT * FROM SilentAuction.Items WHERE Item_ID =?";
+        //Seacrh by Category Query
         String query1="SELECT * FROM SilentAuction.Items WHERE Category LIKE?";
+        //Seaches and finds items if Category is inserted
         ArrayList<ItemBean> resultsCat = searchItemsByCategory(query1,keyword);
+        //Searches and finds items if number is inserted 
         ArrayList<ItemBean> resultsNum= searchItemsByNumber(query,keyword);
         resultsCat.addAll(resultsNum);
         return resultsCat;
